@@ -1,0 +1,69 @@
+<div>
+    <div class="image">
+    </div>
+    <div class="programme">
+        <div class="element">
+          <a [routerLink]="['/affichage-des-centres']">Centres</a>
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+        <div class="element">
+          <a [routerLink]="['/mon-centre']">Mon centre</a>
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+        <div class="element">
+          <a [routerLink]="['/planning']">Planning</a>
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+        <div class="element">
+          <a [routerLink]="['/config']">Config</a>
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+        <div class="logOut" *ngIf="authentification.isUserLoggedIn()">
+          <button mat-icon-button (click)="authentification.logOut()" ><mat-icon>launch</mat-icon></button>
+        </div>
+        <div class="logOut" *ngIf="!authentification.isUserLoggedIn()" (click)="authentification.logIn()">
+          <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+        </div>
+      </div>
+</div>
+
+<div class="body">
+    <mat-toolbar>
+        <span>Medecins du centre</span>
+        <span class="fill-remaining-space"></span>
+        <!-- <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button> -->
+      </mat-toolbar>
+      <div class="mat-elevation-z8">
+          <mat-table [dataSource]="listeMedecins" width="1000px">
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef>id</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="nom">
+              <mat-header-cell *matHeaderCellDef>nom</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{element.nom}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef><mat-icon (click)="onViewPersonnel()">add_circle_outline</mat-icon></mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <mat-icon (click)="onEdit(element)">edit</mat-icon>
+                <button mat-icon-button color="warn" (click)="onDelete(element.id)"><mat-icon>clear</mat-icon></button>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="loading">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+                Loading data...
+              </mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="noData">
+              <mat-footer-cell *matFooterCellDef colspan="6">
+                No data.
+              </mat-footer-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+          </mat-table>
+        </div> 
+</div>

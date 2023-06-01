@@ -1,0 +1,168 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  2
+       author:  will
+       changes:
+         -  createTable:
+              tableName:  centre
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  nom
+                     type:  varchar(255)
+                - column:
+                    name: ville
+                    type: varchar(255)
+                - column:
+                    name: adresse
+                    type: varchar(255)
+                - column:
+                    name: telephone
+                    type: numeric
+
+  - changeSet:
+      id: 4
+      author: will
+      changes:
+        - createTable:
+            tableName: Medecin
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nom
+                  type: varchar(255)
+              - column:
+                  name: prenom
+                  type: varchar(255)
+              - column:
+                  name: mail
+                  type: varchar(255)
+              - column:
+                  name: role
+                  type: varchar(255)
+              - column:
+                  name: Centre
+                  type: varchar(255)
+
+  - changeSet:
+      id: 5
+      author: will
+      changes:
+        - createTable:
+            tableName: Admin
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nom
+                  type: varchar(255)
+              - column:
+                  name: prenom
+                  type: varchar(255)
+              - column:
+                  name: mail
+                  type: varchar(255)
+              - column:
+                  name: role
+                  type: varchar(255)
+              - column:
+                  name: Centre
+                  type: varchar(255)
+
+  - changeSet:
+      id: 6
+      author: will
+      changes:
+        - createTable:
+            tableName: SuperAdmin
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nom
+                  type: varchar(255)
+              - column:
+                  name: prenom
+                  type: varchar(255)
+              - column:
+                  name: mail
+                  type: varchar(255)
+              - column:
+                  name: role
+                  type: varchar(255)
+
+#  - changeSet:
+#      id: 7
+#      author: will
+#      changes:
+#        - createTable:
+#            tableName: userPatient
+#            columns:
+#              - column:
+#                  name: id
+#                  type: int
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                    nullable: false
+#              - column:
+#                  name: nom
+#                  type: varchar(255)
+#              - column:
+#                  name: prenom
+#                  type: varchar(255)
+#              - column:
+#                  name: mail
+#                  type: varchar(255)
+#              - column:
+#                  name: Medecin
+#                  type: varchar(255)
+
+  - changeSet:
+      id: 8
+      author: will
+      changes:
+        - createTable:
+            tableName: Reservation
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: date
+                  type: DATE
+              - column:
+                  name: status
+                  type: int
+              - column:
+                  name: centre
+                  type: varchar(255)
+              - column:
+                  name: patient
+                  type: varchar(255)

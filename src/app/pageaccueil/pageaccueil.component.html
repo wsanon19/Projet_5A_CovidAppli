@@ -1,0 +1,82 @@
+<div>
+    <div class="image">
+        <img src="assets/medecine.jpg" width=100% height="600px">
+        <!-- <p class="text-over">Trouvez un centre de vaccination</p>
+        <mat-card class="bar-over">
+            <mat-card-content>
+                <mat-icon matSuffix>search</mat-icon> 
+                <input type="text" matInput placeholder="Nom du centre">
+                <button mat-raised-button color="warn">Rechercher</button>
+            </mat-card-content>
+        </mat-card> -->
+    </div> 
+    <div class="programme">
+      <div class="element">
+        <a [routerLink]="['/affichage-des-centres']">Centres</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="element">
+        <a [routerLink]="['/mon-centre']">Mon centre</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="element">
+        <a [routerLink]="['/planning']">Planning</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="element">
+        <a [routerLink]="['/config']">Config</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="logOut" *ngIf="authentification.isUserLoggedIn()">
+        <button mat-icon-button (click)="authentification.logOut()" ><mat-icon>launch</mat-icon></button>
+      </div>
+      <div class="logOut" *ngIf="!authentification.isUserLoggedIn()" (click)="authentification.logIn()">
+        <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+      </div>
+    </div>
+    <div class="slogan">
+      <div class="emoji">
+        <p id="oui" color="warn">Disons Oui</p><mat-icon id="smile"> insert_emoticon</mat-icon>
+      </div>
+      <p id="sante">A la santé pour tous</p>
+    </div>
+    <div class="responsive-example">
+        <div class="responsive-item">
+          <p>Faites un don de sang et sauvez une vie</p>
+          <button mat-raised-button color="warn">Découvrir</button>
+        </div>
+        <div class="responsive-item">
+          <p>Retrouvez les informations sur le covid</p>
+          <button mat-raised-button color="warn">Découvrir</button>
+        </div>
+        <div class="responsive-item">
+          <p>Je partage mon dossier médical en ligne</p>
+          <button mat-raised-button color="warn">Découvrir</button>
+        </div>
+      </div>
+  
+</div>
+<!-- <div>
+  <p>Trouver un centre de vaccination</p>
+  <input type="search" id="name" [(ngModel)]="city" name="rechercher" placeholder="Dans quelle ville?">
+  <button (click)="search()" class="search">Search</button>    
+</div>
+
+<h2 *ngIf="listeCentres.length>0"></h2>
+<ul>
+    <p class="liste" *ngFor="let aCenter of listeCentres">
+       <app-affichage-des-centres [center] ="aCenter" (selected) = "onChoose($event)">
+       </app-affichage-des-centres>
+    </p>
+    <button *ngIf="listeCentres.length>0" type="button" class="plus" (click)="AfficherPlus()">Afficher Plus</button> 
+</ul>
+
+<div *ngIf="selected">
+    <app-informations-sur-lutilisateur [center] = "selected">
+
+    </app-informations-sur-lutilisateur>
+</div> -->
+
+
+
+

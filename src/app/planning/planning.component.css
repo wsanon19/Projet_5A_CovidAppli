@@ -1,0 +1,96 @@
+.image {
+    background-image: url(/assets/fond.jpg);
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position: center;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+}
+
+.barAndButton {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .barAndText {
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #titre {
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  #nouveau {
+    color: #fff;
+  }
+
+  .searchBar{
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 8px 10px;
+ }
+
+  .searchbarContent {
+    display: flex;
+  }
+
+  #search {
+    color: black;
+  }
+
+  input {
+    border: none;
+    max-width: 500px;
+  }
+
+  input:focus {
+    outline:none;
+  }
+
+  .programme {
+    display:flex;
+    right: 3%;
+    top: 3%;
+    font-size: 20px;
+    color: black;
+    gap:10px;
+    position: absolute;
+  }
+
+  .element {
+    display:flex;
+  }
+
+  a {
+    color: black;
+    text-decoration:none;
+  }
+  
+  .body{
+    position: absolute;
+    width: 1000px;
+    left:50%;
+    margin-top: 20px;
+    transform: translate(-50%);
+  }
+
+  #nomCentre {
+    padding: 30px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+ #name {
+    color:chocolate;
+  }
+
+  #valider{
+    color:lightgreen;
+  }

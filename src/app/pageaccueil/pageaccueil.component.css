@@ -1,0 +1,160 @@
+p {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+#name {
+    width: 400px;
+    height: 40px;
+}
+
+.liste {
+    position: relative;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.search {
+    width: 80px;
+    height: 40px;
+    background-color: dodgerblue;
+/*     border: 2em solid dodgerblue; */
+}
+
+.plus {
+    background-color: aqua;
+    border: 0;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    bottom: 0px;
+    right: -630px;
+    border: 0.1em solid black;
+}
+
+/* .mdl-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+
+  } */
+
+  .mat-card {
+    background-color: #fff;
+    color: black;
+    width:40%;
+  }
+
+ .image{
+    position: relative;
+ }
+
+ .bar-over {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+ }
+
+ .text-over {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px;
+  color: white;
+ }
+
+  .mat-card-content {
+    display: flex;
+  }
+
+  input {
+    border: none;
+    width: 500px;
+  }
+
+  input:focus{
+    outline-color: #fff;
+}
+
+.responsive-example {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,130%);
+  }
+  
+  .responsive-item {
+    background-color: #fff;
+    padding: 30px;
+    color: black;
+    font-size: 0.77rem;
+    line-height: 1.7;
+    overflow: auto;
+    box-shadow: 0.5px 0.5px 8px #888;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .programme {
+    position: absolute;
+    display:flex;
+    right: 3%;
+    top: 3%;
+    font-size: 20px;
+    color: #fff;
+    gap:10px;
+  }
+
+  .element {
+    display:flex;
+  }
+
+  .slogan {
+    position: absolute;
+    right: 20%;
+    top: 40%;
+  }
+
+  #oui {
+    font-size: 90px;
+    color:crimson;
+  }
+
+  #sante {
+    font-size: 30px;
+    color:#fff;
+    margin-top: 10%;
+  }
+
+  .emoji {
+    display:flex;
+  }
+
+  #smile {
+    size:40px;
+    color:crimson;
+  }
+
+  a {
+    color: #FAFAFA;
+    text-decoration:none;
+  }

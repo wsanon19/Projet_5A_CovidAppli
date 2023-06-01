@@ -1,0 +1,37 @@
+spring:
+    datasource:
+      url: ${SPRING_DATASOURCE_URL}
+      username: ${SPRING_DATASOURCE_USERNAME}
+      password: ${SPRING_DATASOURCE_PASSWORD}
+#        url: jdbc:postgresql://localhost:5432/covid-db
+#        username: postgres
+##        password: Motamu2000?
+#        password: Azertyui1*
+
+
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        hibernate :
+            ddl-auto: create
+    liquibase:
+        change-log: db/changelog/db.changelog-master.yaml
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: info,health,beans,metrics,endpoints,mappings
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+
+server:
+  port: 12037
+logging:
+  level:
+    io:
+      micrometer: DEBUG
+    org:
+      springframework:
+        security: DEBUG

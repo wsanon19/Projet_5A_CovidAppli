@@ -1,0 +1,37 @@
+.image {
+    background-image: url(/assets/fond.jpg);
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position: center;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+}
+
+.programme {
+    display:flex;
+    right: 3%;
+    top: 3%;
+    font-size: 20px;
+    color: black;
+    gap:10px;
+    position: absolute;
+  }
+
+  .element {
+    display:flex;
+  }
+
+  a {
+    color: black;
+    text-decoration:none;
+  }
+
+.body{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 1000px;
+}

@@ -1,0 +1,78 @@
+<!-- <div class="BoiteMere" *ngIf="center">
+    <h2 [title]="center.name">{{center.name}}</h2>
+    <div class="detailCentre">{{center.address}}
+        <span>{{center.postalcode}} {{center.city}}</span>
+        <button class="styled" type="button" (click)="choisir()" >choisir</button> 
+    </div>  
+</div> -->
+<div>
+  <div class="image">
+  </div>
+  <div class="programme">
+      <div class="element">
+        <a [routerLink]="['/affichage-des-centres']">Centres</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="element">
+        <a [routerLink]="['/mon-centre']">Mon centre</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="element">
+        <a [routerLink]="['/planning']">Planning</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="element">
+        <a [routerLink]="['/config']">Config</a>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="logOut" *ngIf="authentification.isUserLoggedIn()">
+        <button mat-icon-button (click)="authentification.logOut()" ><mat-icon>launch</mat-icon></button>
+      </div>
+      <div class="logOut" *ngIf="!authentification.isUserLoggedIn()" (click)="authentification.logIn()">
+        <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+      </div>
+    </div>
+    <div class="barAndText">
+      <p id="titre">Trouvez un centre de vaccination</p> 
+      <div class="barAndButton">
+        <mat-card class="searchBar">
+          <mat-card-content class="searchbarContent">
+              <mat-icon matSuffix id="search">search</mat-icon> 
+              <input type="text" matInput placeholder="Nom du centre" [(ngModel)]="searchKey" (keyup)="applyFilter($event)">
+              <button mat-raised-button color="warn">Rechercher</button>
+          </mat-card-content>
+        </mat-card>
+        <span class="spacer"></span>
+        <button mat-raised-button color="warn" class="nouveau" id="Nouveau" (click)="onCreate()"><mat-icon>add</mat-icon>Nouveau</button>
+      </div>   
+    </div>
+      <!-- <p class="text-over">Trouvez un centre de vaccination</p>
+      <mat-card class="bar-over">
+          <mat-card-content>
+              <mat-icon matSuffix>search</mat-icon> 
+              <input type="text" matInput placeholder="Nom du centre" [(ngModel)]="searchKey">
+              <button mat-raised-button color="warn" (click)="centreService.getCentresByName(searchKey)">Rechercher</button>
+          </mat-card-content>
+      </mat-card>
+      <button mat-raised-button color="warn">Nouveau</button> --> 
+      <div class="categories" *ngIf="listeCentres && listeCentres.length>0" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
+        <mat-card class="example-card" *ngFor="let acentre of listeCentres | filtre:searchKey:'nom'" >
+          <mat-card class="design">  
+          </mat-card>
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+            <p id="item">
+                {{acentre.nom}}
+            </p>
+            <p id="address"> <mat-icon> place</mat-icon>
+              {{acentre.adresse}}
+            </p>
+            <div *ngIf="isSuperAdmin()">
+              <mat-icon id="edit" alignItems="center" (click)="onEdit(acentre)">edit</mat-icon><mat-icon id="people" alignItems="center" (click)="onView(acentre)">people</mat-icon>
+            </div>
+            <div *ngIf="!isSuperAdmin()" id="item"><button mat-raised-button color="warn" (click)="onChoose(acentre)">Choisir</button></div>
+        </div>
+        </mat-card>
+    </div>
+</div>
+    
+

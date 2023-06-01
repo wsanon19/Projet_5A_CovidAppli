@@ -1,0 +1,37 @@
+version: '1'
+
+services:
+  app:
+    image: 'sanon-mobou/covid-api:1.0.0'
+    build:
+      context: /covid-api
+    ports:
+      - "9099:12037"
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+          
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+
+
+  front:
+    image: 'sanon-mobou/covid-front:1.0.1'
+    build: 
+      context: .
+    ports:
+      - "4455:80"
+    container_name: front
+    depends_on:
+      - app
+    
+

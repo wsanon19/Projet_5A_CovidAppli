@@ -1,0 +1,69 @@
+<!-- <div class="BoiteMere">
+    <p> prise de rendez-vous vaccination </p>
+<div class="BoiteMere" *ngIf="center">
+    <h2 [title]="center.nom">{{center.nom}}</h2>
+    <div class="detailCentre">{{center.adresse}}
+        <span>{{center.postalcode}} {{center.city}}</span>
+    </div>
+</div>
+
+<form action="/page-traitement-donnees" method="post">
+    <div>
+        <label for="nom">nom</label>
+        <input type="text" id="nom" name="nom" [(ngModel)]="nom" placeholder="nom" required>
+    </div>
+    <div>
+        <label for="prénom">prenom</label>
+        <input type="text" id="Prenom" name="Prenom" [(ngModel)]="prenom" placeholder="prenom" required>
+    </div>
+    <div>
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="email" required>
+    </div>
+    <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" [(ngModel)]="Date" name="date" required>
+    </div>
+</form>
+<button class="reservation" type="button" (click)="Reserver()" >Réserver</button> 
+</div> -->
+
+<mat-toolbar>
+    <span>{{personneCentre.UserForm.controls['id'].value?"Changer un Medecin":"Ajouter Un Medecin"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <form [formGroup]="personneCentre.UserForm" class="normal-form" (submit)="onSubmitMedecin()">
+    <mat-grid-list cols="1" rowHeight="400px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id">
+          <mat-form-field class="show">
+            <input type="text" formControlName="nom" matInput placeholder="Nom*">
+            <mat-error>Ce champ est obligatoire</mat-error>
+          </mat-form-field>
+          <mat-form-field class="show">
+            <input formControlName="prenom" matInput placeholder="prenom*" class="show">
+            <mat-error>Ce champ est obligatoire</mat-error>
+          </mat-form-field>
+          <mat-form-field class="show">
+            <input type="text" formControlName="mail" matInput placeholder="email*">
+            <mat-error>Ce champ est obligatoire</mat-error>
+          </mat-form-field>
+          <mat-form-field class="show">
+            <input formControlName="password" type="password" matInput placeholder="mot de passe*">
+          </mat-form-field>
+          <mat-form-field class="show">
+            <input type="text" formControlName="role" matInput placeholder="MEDECIN">
+          </mat-form-field>
+          <mat-form-field class="show">
+            <input type="text" formControlName="centreName" matInput matInput placeholder={{centre.nom}}>
+          </mat-form-field>
+          <div class="button-row">
+            <button mat-raised-button color="warn" type="submit">Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
